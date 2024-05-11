@@ -14,6 +14,7 @@ public class CDStoreManagement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         CDCatalog catalog = new CDCatalog();
+        
         CD cd;
         String stringInput;
         int n = 0;
@@ -34,45 +35,50 @@ public class CDStoreManagement {
                     catalog.addCD();
                     break;
                 case 2:
-                    String title = sc.next();
+                    String title = sc.nextLine();
+                    sc.nextLine();
                     cd = catalog.searchByTitle(title);
                     if (cd != null) {
-                        System.out.println(cd.toString());
+                        cd.print();
                         cd = null;
                     } else {
                         System.out.println("Couldn't find CD");
                     }
                     break;
                 case 3:
-                    String collection = sc.next();
+                    String collection = sc.nextLine();
+                    sc.nextLine();
                     cd = catalog.searchByCollection(collection);
                     if (cd != null) {
-                        System.out.println(cd.toString());
+                        cd.print();
                         cd = null;
                     } else {
                         System.out.println("Couldn't find CD");
                     }
                     break;
                 case 4:
-                    String type = sc.next();
+                    String type = sc.nextLine();
+                    sc.nextLine();
                     cd = catalog.searchByType(type);
                     if (cd != null) {
-                        System.out.println(cd.toString());
+                        cd.print();
                         cd = null;
                     } else {
                         System.out.println("Couldn't find CD");
                     }
                     break;
                 case 5:
-                    stringInput = sc.next();
+                    stringInput = sc.nextLine();
+                    sc.nextLine();
                     catalog.deleteCD(stringInput);
                     break;
                 case 6:
-                    stringInput = sc.next();
+                    stringInput = sc.nextLine();
+                    sc.nextLine();
                     catalog.editCD(stringInput);
                     break;
                 case 7:
-                    
+                    catalog.displayAll();
                     break;
                 case 8:
                     catalog.sortByYear();

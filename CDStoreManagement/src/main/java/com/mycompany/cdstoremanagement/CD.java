@@ -38,13 +38,13 @@ public class CD {
     public void Input(){
         Scanner sc = new Scanner(System.in);
         System.out.print("ID: ");
-        this.id = sc.next();
+        this.id = sc.nextLine();
         System.out.print("Collection: ");
-        this.collection = sc.next();
+        this.collection = sc.nextLine();
         System.out.print("Type: ");
-        this.type = sc.next();
+        this.type = sc.nextLine();
         System.out.print("Title: ");
-        this.title = sc.next();
+        this.title = sc.nextLine();
         System.out.print("Price: ");
         this.price = sc.nextDouble();
         System.out.print("Year of release: ");
@@ -95,8 +95,7 @@ public class CD {
         this.yearOfRelease = yearOfRelease;
     }
 
-    @Override
-    public String toString(){
-        return "ID: "+id+" Collection: "+collection+" Type: "+type+" Title: "+title+" Price: "+price+" Release year: "+yearOfRelease;
+    public void print(){
+        System.out.println("ID: "+id+" Collection: "+collection+" Type: "+type+" Title: "+title+" Price: "+price+" Release year: "+yearOfRelease);
     }
 }

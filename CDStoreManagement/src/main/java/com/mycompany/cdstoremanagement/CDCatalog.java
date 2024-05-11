@@ -38,9 +38,14 @@ public class CDCatalog {
     };
 
     public CD searchByTitle(String title) {
-        int index = Collections.binarySearch(list, new CD("", "", title), compareAboutTitle);
-        if (index != -1) {
-            return list.get(index);
+//        int index = Collections.binarySearch(list, new CD("", "", title), compareAboutTitle);
+//        if (index != -1) {
+//            return list.get(index);
+//        }
+        for (CD i : list) {
+            if (i.getTitle().equals(title)) {
+                return i;
+            }
         }
         return null;
     }
@@ -52,9 +57,15 @@ public class CDCatalog {
     };
 
     public CD searchByCollection(String collection) {
-        int index = Collections.binarySearch(list, new CD(collection, "", ""), compareAboutCollection);
-        if (index != -1) {
-            return list.get(index);
+//        int index = Collections.binarySearch(list, new CD(collection, "", ""), compareAboutCollection);
+//        if (index != -1) {
+//            return list.get(index);
+//        }
+        for (CD i : list) {
+            if (i.getTitle().equals(collection)) {
+                //return i;
+                i.print();
+            }
         }
         return null;
     }
@@ -66,9 +77,15 @@ public class CDCatalog {
     };
 
     public CD searchByType(String type) {
-        int index = Collections.binarySearch(list, new CD("", type, ""), compareAboutType);
-        if (index != -1) {
-            return list.get(index);
+//        int index = Collections.binarySearch(list, new CD("", type, ""), compareAboutType);
+//        if (index != -1) {
+//            return list.get(index);
+//        }
+        for (CD i : list) {
+            if (i.getTitle().equals(type)) {
+//                return i;
+                i.print();
+            }
         }
         return null;
     }
@@ -85,15 +102,16 @@ public class CDCatalog {
 
     public void displayAll() {
         for (CD i : list) {
-            System.out.println(i.toString());
+            i.print();
         }
     }
-    
+
     Scanner sc = new Scanner(System.in);
+
     public void editCD(String id) {
         for (CD i : list) {
             if (i.getId().equals(id)) {
-                System.out.println(i.toString());
+                i.print();
                 System.out.print("Edit Collection: ");
                 String collection = sc.next();
                 i.setCollection(collection);
@@ -116,16 +134,20 @@ public class CDCatalog {
     Comparator<CD> compareAboutYear = new Comparator<CD>() {
         @Override
         public int compare(CD o1, CD o2) {
-            if (o1.getYearOfRelease() > o2.getYearOfRelease()) 
+            if (o1.getYearOfRelease() > o2.getYearOfRelease()) {
                 return 1;
-            if (o1.getYearOfRelease() < o2.getYearOfRelease()) 
+            }
+            if (o1.getYearOfRelease() < o2.getYearOfRelease()) {
                 return -1;
-            if (o1.getYearOfRelease() == o2.getYearOfRelease()) 
+            }
+            if (o1.getYearOfRelease() == o2.getYearOfRelease()) {
                 return 0;
+            }
             return 1;
         }
     };
-    public void sortByYear(){
+
+    public void sortByYear() {
         Collections.sort(list, compareAboutYear);
     }
 }
