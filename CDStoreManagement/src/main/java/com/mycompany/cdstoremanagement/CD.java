@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.cdstoremanagement;
+import java.util.Comparator;
 import java.util.Scanner;
 /**
  *
@@ -25,6 +26,12 @@ public class CD {
         this.yearOfRelease = yearOfRelease;
     }
 
+    public CD(String collection, String type, String title) {
+        this.collection = collection;
+        this.type = type;
+        this.title = title;
+    }
+    
     public CD() {
     }
     
@@ -67,7 +74,27 @@ public class CD {
     public int getYearOfRelease() {
         return yearOfRelease;
     }
-    
+
+    public void setCollection(String collection) {
+        this.collection = collection;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setYearOfRelease(int yearOfRelease) {
+        this.yearOfRelease = yearOfRelease;
+    }
+
     @Override
     public String toString(){
         return "ID: "+id+" Collection: "+collection+" Type: "+type+" Title: "+title+" Price: "+price+" Release year: "+yearOfRelease;
