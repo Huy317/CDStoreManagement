@@ -4,6 +4,7 @@
  */
 package com.mycompany.cdstoremanagement;
 
+import java.time.Clock;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -56,18 +57,17 @@ public class CDCatalog {
         }
     };
 
-    public CD searchByCollection(String collection) {
+    public void searchByCollection(String collection) {
 //        int index = Collections.binarySearch(list, new CD(collection, "", ""), compareAboutCollection);
 //        if (index != -1) {
 //            return list.get(index);
 //        }
         for (CD i : list) {
-            if (i.getTitle().equals(collection)) {
+            if (i.getCollection().equals(collection)) {
                 //return i;
                 i.print();
             }
         }
-        return null;
     }
     Comparator<CD> compareAboutType = new Comparator<CD>() {
         @Override
@@ -76,18 +76,17 @@ public class CDCatalog {
         }
     };
 
-    public CD searchByType(String type) {
+    public void searchByType(String type) {
 //        int index = Collections.binarySearch(list, new CD("", type, ""), compareAboutType);
 //        if (index != -1) {
 //            return list.get(index);
 //        }
         for (CD i : list) {
-            if (i.getTitle().equals(type)) {
+            if (i.getType().equals(type)) {
 //                return i;
                 i.print();
             }
         }
-        return null;
     }
 
     public boolean deleteCD(String id) {

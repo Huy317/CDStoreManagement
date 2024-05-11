@@ -47,8 +47,10 @@ public class CD {
         this.title = sc.nextLine();
         System.out.print("Price: ");
         this.price = sc.nextDouble();
+        sc.nextLine();
         System.out.print("Year of release: ");
         this.yearOfRelease = sc.nextInt();
+        sc.nextLine();
     }
 
     public String getId() {

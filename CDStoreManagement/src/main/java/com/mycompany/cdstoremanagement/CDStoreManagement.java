@@ -14,7 +14,7 @@ public class CDStoreManagement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         CDCatalog catalog = new CDCatalog();
-        
+
         CD cd;
         String stringInput;
         int n = 0;
@@ -30,13 +30,14 @@ public class CDStoreManagement {
             System.out.println("8.Sort cd by ascending order of year of release");
             System.out.println("9.Exit");
             n = sc.nextInt();
+            sc.nextLine();
             switch (n) {
                 case 1:
                     catalog.addCD();
                     break;
                 case 2:
                     String title = sc.nextLine();
-                    sc.nextLine();
+
                     cd = catalog.searchByTitle(title);
                     if (cd != null) {
                         cd.print();
@@ -47,34 +48,20 @@ public class CDStoreManagement {
                     break;
                 case 3:
                     String collection = sc.nextLine();
-                    sc.nextLine();
-                    cd = catalog.searchByCollection(collection);
-                    if (cd != null) {
-                        cd.print();
-                        cd = null;
-                    } else {
-                        System.out.println("Couldn't find CD");
-                    }
+                    catalog.searchByCollection(collection);
+
                     break;
                 case 4:
                     String type = sc.nextLine();
-                    sc.nextLine();
-                    cd = catalog.searchByType(type);
-                    if (cd != null) {
-                        cd.print();
-                        cd = null;
-                    } else {
-                        System.out.println("Couldn't find CD");
-                    }
+                    catalog.searchByType(type);
+
                     break;
                 case 5:
                     stringInput = sc.nextLine();
-                    sc.nextLine();
                     catalog.deleteCD(stringInput);
                     break;
                 case 6:
                     stringInput = sc.nextLine();
-                    sc.nextLine();
                     catalog.editCD(stringInput);
                     break;
                 case 7:
@@ -82,6 +69,9 @@ public class CDStoreManagement {
                     break;
                 case 8:
                     catalog.sortByYear();
+                    break;
+                case 9:
+                    
                     break;
                 default:
                     throw new AssertionError();
